@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- remix icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Quiz Website HTML CSS JS | Codehal</title>
+    <!-- link de css -->
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+
+        <nav class="nav container">
+
+            <a href="#" class="nav__logo">
+                .Quiz
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a href="#inicio" class="nav__link">Inicio</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#servicio" class="nav__link">Servicios</a>
+                    </li>
+
+                </ul>
+
+                <!-- button close -->
+                <button type="button" class="nav__close" id="nav-close">
+                    <i class="ri-close-large-line"></i>
+                </button>
+
+            </div>
+
+            <!-- button open -->
+            <button class="nav__open" id="nav-open">
+                <i class="ri-menu-line"></i>
+            </button>
+        </nav>
+
+    </header>
+    <main class="main">
+        
+        <section class="hero">
+            
+            <div class="hero__content">
+                <h1 class="hero__title">¡Descubre Cuánto Sabes!</h1>
+                <p class="hero__description">¿Eres un experto en cultura general? Pon a prueba tus conocimientos con
+                    nuestro emocionante quiz y compite con amigos para ver quién es el verdadero maestro. ¡Atrévete a
+                    aceptar el desafío y demuestra lo que sabes!</p>
+                <button type="button" class="btn hero__btn">Iniciar Ahora</button>
+            </div>
+
+        </section>
+
+        <div id="reglas" class="reglas  ">
+            <div class="reglas-content">
+                <h2 class="reglas__title">guía del juego</h2>
+                <ul class="reglas__list">
+                    <li class="reglas__item"><strong>1.</strong> El quiz consta de 10 preguntas.</li>
+                    <li class="reglas__item"><strong>2.</strong> Cada respuesta correcta te dará puntos.</li>
+                    <li class="reglas__item"><strong>3.</strong> Al finalizar, podrás ver tu puntuación total</li>
+                    <li class="reglas__item diviertete">¡Diviértete y aprende mientras juegas!</li>
+                </ul>
+                <div class="buttons__reglas">
+                    <button  class=" btn btn__cancelar">Cancelar</button>
+                    <button href="./preguntas.html"  class="btn btn__continuar">¡Vamos a Jugar!</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="./SCRIPTS/questions.js"></script>
+    <script src="./SCRIPTS/script.js"></script>
+</body>
+
+</html>

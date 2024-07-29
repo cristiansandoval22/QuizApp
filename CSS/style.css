@@ -1,0 +1,300 @@
+/* link  google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* reset css */
+:root{
+    --color-1: #D0CCD0;
+    --color-2: #FBFCFF;
+    --color-3:#ff0000;
+    --color-4: #1C6E8C;
+    --color-5: #a70000;
+    --color-6: #274156;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+body{
+    background: url(../5293470.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.main::before {
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    inset: 0;
+    z-index: -1; /* default value to avoid overlapping issues */
+    transition: background-color 0.3s ease; /* optional: for smooth transition */
+}
+
+.main.show::before {
+    background-color: #27415675;
+   
+}
+
+/* header y el nav */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav {
+    position: relative;
+    height: 3rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav__logo {
+    color: var(--color-2);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav__menu {
+    background-color: var(--color-5);
+    
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100%;
+    padding: 6rem 3rem;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav__list {
+    list-style: none;
+}
+
+.nav__item {
+    margin: 1.5rem;
+
+}
+
+.nav__link {
+    position: relative;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav__link::after {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: var(--color-2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+.nav__close,
+.nav__open {
+    border: none;
+    background-color: transparent;
+    color: var(--color-2);
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+.nav__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-3);
+    border-radius: 10px;  
+}
+
+/* mostrar el menu */
+.show__menu {
+    right: 0;
+}
+
+/* hero section */
+
+.hero{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-2);
+    text-align: center;
+    position: relative;
+    padding: 0 15%;
+}
+
+.hero__title{
+    font-size: 2rem;
+    text-shadow: 0 0 5px var(--color-3);
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.hero__btn{
+    padding: 5px 20px;
+    background-color: var(--color-3);
+    border: 1px solid var(--color-2);
+    border-radius: 5px;
+    color: var(--color-2);
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 1.3rem;
+    box-shadow: var(--color-2) 0 3px 10px;
+    cursor: pointer;
+}
+.hero__btn:hover{
+    background: transparent;
+   
+}
+.display{
+    background-color: rgba(0, 0, 0, 0.712);
+    position: absolute;
+    inset: 0;
+}
+/* reglas del juego pop up */
+.reglas{
+    z-index: 3;
+}
+.reglas-content{
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-1);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+
+}
+.show__reglas{
+    top: 50%;
+}
+
+.reglas__title{
+    font-size: 1.4rem;
+    color: var(--color-3);
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.reglas__list{
+    list-style: none;
+    margin-top: 1rem;
+}
+.reglas__item{
+    margin-bottom: 0.8rem;
+}
+
+.diviertete{
+    text-align: center;
+    font-weight: bold;
+}
+
+.buttons__reglas{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+.btn{
+    padding: 5px 20px;
+    color: var(--color-2);
+    font-weight: bold;
+    border: var(--color-5) 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn__cancelar{
+    background-color: var(--color-3);
+}
+.btn__continuar{
+    background-color: green;
+    border: green 1px solid;
+}
+
+
+
+/* breakpoints 
+    tablets a mas
+*/
+
+@media (min-width: 768px) {
+    .nav__menu {
+        background-color: transparent;
+        position: initial;
+        padding: 0;
+        transition: none;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .nav__list {
+        display: flex;
+        align-items: center;
+    }
+    .nav__item{
+        margin: 0;
+        margin-right: 1.5rem;
+    }
+
+
+    .nav__close,
+    .nav__open {
+        display: none;
+    }
+    .hero__title{
+        font-size: 3rem;
+    }
+    .hero__description{
+        font-size: 1.2rem;
+    }
+    .reglas__title{
+        font-size: 3rem;
+    }
+    .reglas__list{
+        font-size: 1.4rem;
+    }
+    .btn{
+        font-size: 1.4rem; 
+    }
+}
+

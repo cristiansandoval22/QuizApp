@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* reset css */
+:root{
+    --color-1: #D0CCD0;
+    --color-2: #FBFCFF;
+    --color-3:#ff0000;
+    --color-4: #1C6E8C;
+    --color-5: #a70000;
+    --color-6: #274156;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+body{
+    background-color: var(--color-6);
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.active{
+    filter: blur(16px);
+    pointer-events: none;
+}
+/* quiz */
+.quiz-box{
+    background-color: white;
+    border: 3px solid var(--color-2);
+    padding: 1rem;
+}
+.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+.quiz__title{
+    text-align: center;
+    color: var(--color-2);
+    background: linear-gradient(45deg, transparent, red, transparent);
+    cursor: pointer;
+}
+
+.quiz__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0 ;
+    border-bottom: 1px solid var(--color-3);
+}
+.quiz__name{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-5);
+}
+.name__user{
+    font-weight: 400;
+    color: black;
+    
+}
+.quiz__score{
+    background-color: var(--color-5);
+    padding:7px;
+    border-radius: 5px;
+    font-weight: 700;
+    color: var(--color-2);
+}
+.question__container{
+    padding: 1rem 0 0 ;
+}
+.quiz__question{
+    font-size: 0.9rem;
+    font-weight: bold;
+    height: 3rem;
+}
+.option__list{
+
+    border-bottom: 1px solid var(--color-3);
+    margin-bottom: 0.5rem;
+}
+.option{
+    border: 2px solid #ff000049;
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.option:hover{
+    background-color: #ff000049;
+}
+.quiz__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.next__btn{
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-5);
+    color: var(--color-2);
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 7px;
+    border-radius: 5px;
+}
+.next__btn:hover{
+    background-color: var(--color-3);
+}
+/* ingrese su usuario */
+.username__container{
+    background-color: var(--color-1);
+    width: max-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+}
+
+
+.btn{
+    padding: 5px 20px;
+    color: var(--color-2);
+    font-weight: bold;
+    border: var(--color-5) 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.input__username{
+    display: block;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+}
+.error{
+    margin-bottom: 1rem;
+    color: var(--color-3);
+}
+.user__buttons{
+    text-align: center;
+}
+.btn__cancelar{
+    background-color: var(--color-3);   
+}
+.btn__continuar{
+    background-color: green;
+    border: green 1px solid;
+}
+.correct{
+    color: #00a63d;
+    border: 2px solid #00a63d;
+}
+.incorrect{
+    background-color: var(--color-1);
+    color: var(--color-5);
+    border: 2px solid var(--color-5);
+}
+.disabled__questions{
+    pointer-events: none;
+}
+.disabled{
+    background-color: #ccc; /* O cualquier color que indique que el botón está deshabilitado */
+    cursor: not-allowed;
+}
+/* RESULTADOS */
+.result__box{
+    background-color: var(--color-6);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+    border: 2px solid var(--color-5);
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+}
+.result__box.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.result__title{
+    font-size: 1.5rem;
+}
+.porcentage__container{
+  width: 300px;
+  display: flex;
+  flex-direction:column ;
+  align-items:center;
+  margin: 20px 0 40px
+}
+.circular__progress{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: conic-gradient(var(--color-3) 3.6deg, rgba(255, 255, 255, .1) 0deg);
+  border-radius: 50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.circular__progress::before{
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background-color: var(--color-6);
+}
+.progress__value{
+    position: relative;
+  font-size: 45px;
+  font-weight:600;
+}
+.score__text{
+  font-size: 1.5rem;
+  font-weight:600;
+  margin-top: 20px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.btn__result{
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-2);
+    outline: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-2);
+    cursor: pointer;
+}
+
+.tryagain__btn{
+    background-color: var(--color-3);
+    transition: all0.3s ease;
+}
+.tryagain__btn:hover{
+    background-color: var(--color-5);
+}
+
+.gohome__btn{
+    background-color: transparent;
+    border: 1px solid var(--color-5);
+    transition: all0.3s ease;
+}
+.gohome__btn:hover{
+    background-color: var(--color-5);
+    border: 1px solid var(--color-2);
+}
+/* breakpoints */
+@media (min-width: 768px){
+    .username__container{
+        width: 500px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .input__username{
+    width: 300px;
+    height: 3rem;
+    font-size: 1.5rem;
+    }
+    .btn__continuar{
+        font-size: 1.5rem;
+    }
+    .quiz__question{
+        font-size: 1rem;
+    }
+    .quiz__name,
+    .option,
+    .question__total,
+    .next__btn{
+        font-size: 1.3rem;
+    }
+}
