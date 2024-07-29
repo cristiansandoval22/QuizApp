@@ -343,8 +343,11 @@ function headerScore(){
 }
 
 function showResultBox (){
+    const body=document.querySelector("body")
     sectionQuiz.classList.add("hide")
     resultBox.classList.add('show');
+    body.style.background = "var(--color-1)"
+
 
     const scoreText =   document.querySelector(".score__text")
     scoreText.textContent= `your Score ${userScore} out of ${questions.length}`
