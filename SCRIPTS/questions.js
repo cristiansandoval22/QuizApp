@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
     {
         numb: 1,
         question: "¿Cuál es el río más largo del mundo?",
@@ -222,100 +222,82 @@ let questions = [
     }
 ];
 
+const main = document.querySelector(".main");
+const containerUser = document.querySelector(".username__container");
+const inputUsername = document.querySelector('.input__username');
+const btnContinuar = document.querySelector('.btn__continuar-user');
+const nameUser = document.querySelector(".name__user");
+const error = document.querySelector(".error");
+const nextBtn = document.querySelector(".next__btn");
+const optionList = document.querySelector(".option__list");
+const resultBox = document.querySelector(".result__box");
+const sectionQuiz = document.querySelector(".section-quiz");
+const tryAgain = document.querySelector(".tryagain__btn");
 
 let questionCount = 0;
 let questionNumber = 1;
 let userScore = 0;
 let isAnswered = false;
-const nextBtn = document.querySelector(".next__btn")
-const optionList = document.querySelector(".option__list")
-const resultBox = document.querySelector(".result__box")
-const sectionQuiz = document.querySelector(".section-quiz")
-const tryAgain = document.querySelector(".tryagain__btn")
 
+btnContinuar.addEventListener('click', () => {
+    const username = inputUsername.value.trim();
 
-document.addEventListener('DOMContentLoaded', function() {
-    const main = document.querySelector(".main")
-    const containerUser = document.querySelector(".username__container")
-    const inputUsername = document.querySelector('.input__username');
-    const btnContinuar = document.querySelector('.btn__continuar-user');
-    const nameUser = document.querySelector(".name__user")
-    const error = document.querySelector(".error")
-
-    btnContinuar.addEventListener('click', ()=> {
-        const username = inputUsername.value.trim();
-
-        if (username === '') {
-            // Si el campo está vacío, evita la acción
-            error.textContent = "Por favor, ingrese su nombre."
-            return
-        }
-        
-        nameUser.textContent= username
-        
-
-        main.classList.remove("active")
-        containerUser.style.top = '-100%';
-        error.textContent = '';
-        showQuestion(questionCount)
-    
-    });
-});
-
-
-nextBtn.addEventListener("click", ()=>{
-    if (!isAnswered) {
-        const inputUsername = document.querySelector('.input__username').value;
-        alert(`${inputUsername} Por favor, responda la pregunta antes de continuar.`);
+    if (username === '') {
+        error.textContent = "Por favor, ingrese su nombre.";
         return;
     }
 
-    if(questionCount < questions.length-1){
-        questionCount++;
-        showQuestion(questionCount)
-        questionNumber++
-        questionCounter(questionNumber)
-        headerScore()
-        isAnswered = false;
-        
-    }else{
-        showResultBox()
+    nameUser.textContent = username;
+    main.classList.remove("active");
+    containerUser.style.top = '-100%';
+    error.textContent = '';
+    showQuestion(questionCount);
+});
+
+nextBtn.addEventListener("click", () => {
+    if (!isAnswered) {
+        alert("Por favor, responda la pregunta antes de continuar.");
+        return;
     }
-    
-})
-// mostrar preguntas
+
+    if (questionCount < questions.length - 1) {
+        questionCount++;
+        showQuestion(questionCount);
+        questionNumber++;
+        questionCounter(questionNumber);
+        headerScore();
+        isAnswered = false;
+    } else {
+        showResultBox();
+    }
+});
+
 function showQuestion(index) {
-    const questionText = document.querySelector(".quiz__question")
+    const questionText = document.querySelector(".quiz__question");
     questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
 
-    let optioTag = `<div class="option"><span>${questions[index].options[0]}</span></div>
-        <div class="option"><span>${questions[index].options[1]}</span></div>
-        <div class="option"><span>${questions[index].options[2]}</span></div>
-        <div class="option"><span>${questions[index].options[3]}</span> </div>`
+    let optionTag = questions[index].options.map(option => `<div class="option"><span>${option}</span></div>`).join('');
+    
+    optionList.innerHTML = optionTag;
 
-    optionList.innerHTML = optioTag
-
-    const option = document.querySelectorAll(".option");
-    for ( let i = 0 ; i < option.length; i++){
-        option[i].setAttribute(`onclick`, `optionSelected(this)`)
-    }
+    const options = optionList.querySelectorAll(".option");
+    options.forEach(option => {
+        option.addEventListener('click', () => optionSelected(option));
+    });
     nextBtn.classList.add("disabled");
 }
-// opcion seleccionada
+
 function optionSelected(answer) {
     let userAnswer = answer.textContent.trim();
     let correctAnswer = questions[questionCount].answer;
     let allOptions = optionList.children;
 
-    // Añadir la clase 'correct' o 'incorrect' a la respuesta seleccionada
     if (userAnswer === correctAnswer) {
         answer.classList.add("correct");
-        userScore+= 1
-        headerScore()
+        userScore++;
+        headerScore();
     } else {
         answer.classList.add("incorrect");
-
-        // Marcar la opción correcta
         for (let i = 0; i < allOptions.length; i++) {
             if (allOptions[i].textContent.trim() === correctAnswer) {
                 allOptions[i].classList.add("correct");
@@ -323,7 +305,6 @@ function optionSelected(answer) {
         }
     }
 
-    // Deshabilitar todas las opciones
     for (let i = 0; i < allOptions.length; i++) {
         allOptions[i].classList.add("disabled__questions");
     }
@@ -331,41 +312,48 @@ function optionSelected(answer) {
     isAnswered = true;
 }
 
-
-function questionCounter (index){
-    const questionTotal = document.querySelector(".question__total")
+function questionCounter(index) {
+    const questionTotal = document.querySelector(".question__total");
     questionTotal.textContent = `${index} de ${questions.length} preguntas`;
 }
 
-function headerScore(){
-   const headerScoreText =  document.querySelector(".quiz__score");
-   headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`
+function headerScore() {
+    const headerScoreText = document.querySelector(".quiz__score");
+    headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`;
 }
 
-function showResultBox (){
-    const body=document.querySelector("body")
-    sectionQuiz.classList.add("hide")
+function showResultBox() {
+    sectionQuiz.classList.add("hide");
     resultBox.classList.add('show');
-    body.style.background = "var(--color-1)"
 
+    const scoreText = document.querySelector(".score__text");
+    scoreText.textContent = `Your Score: ${userScore} out of ${questions.length}`;
 
-    const scoreText =   document.querySelector(".score__text")
-    scoreText.textContent= `your Score ${userScore} out of ${questions.length}`
+    const circularProgress = document.querySelector(".circular__progress");
+    const progressValue = document.querySelector(".progress__value");
+    let progressValueStart = 0;
+    let progressValueEnd = Math.round((userScore / questions.length) * 100);
+    let speed = 20;
 
-    const circularProgress = document.querySelector(".circular__progress")
-    const progressValue = document.querySelector(".progress__value")
-    let progressValueStart = -1
-    let progressValueEnd = (userScore / questions.length) * 100
-    let speed = 20
+    let progress = setInterval(() => {
+        progressValueStart++;
+        progressValue.textContent = `${progressValueStart}%`;
+        circularProgress.style.background = `conic-gradient(var(--color-3) ${progressValueStart * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
 
-    let progress = setInterval(()=>{
-        progressValueStart++
-
-        progressValue.textContent= `${progressValueStart}%`
-        circularProgress.style.background = `conic-gradient(var(--color-3) ${progressValueStart * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`
-
-        if (progressValueStart == progressValueEnd){
-            clearInterval(progress)
+        if (progressValueStart === progressValueEnd) {
+            clearInterval(progress);
         }
-    }, speed)
+    }, speed);
+}
+
+function resetQuiz() {
+    questionCount = 0;
+    questionNumber = 1;
+    userScore = 0;
+    isAnswered = false;
+    resultBox.classList.remove('show');
+    sectionQuiz.classList.remove("hide");
+    showQuestion(questionCount);
+    questionCounter(questionNumber);
+    headerScore();
 }

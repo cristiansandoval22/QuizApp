@@ -1,25 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
 
-/* reset css */
-:root{
+/* Variables de colores */
+:root {
     --color-1: #D0CCD0;
     --color-2: #FBFCFF;
-    --color-3:#ff0000;
+    --color-3: #FF0000;
     --color-4: #1C6E8C;
-    --color-5: #a70000;
+    --color-5: #A70000;
     --color-6: #274156;
 }
+
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
 }
-html{
+
+html {
     scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-6);
 }
 
 .container {
@@ -27,76 +35,82 @@ html{
     max-width: 600px;
     margin: 0 auto;
 }
-body{
-    background-color: var(--color-6);
-}
-.main{
+
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.active{
+.active {
     filter: blur(16px);
     pointer-events: none;
 }
-/* quiz */
-.quiz-box{
+
+/* Estilos del quiz */
+.quiz-box {
     background-color: white;
     border: 3px solid var(--color-2);
     padding: 1rem;
 }
-.hide{
+
+.hide {
     opacity: 0;
     pointer-events: none;
 }
-.quiz__title{
+
+.quiz__title {
     text-align: center;
     color: var(--color-2);
     background: linear-gradient(45deg, transparent, red, transparent);
     cursor: pointer;
 }
 
-.quiz__header{
+.quiz__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 0 ;
+    padding: 0.6rem 0;
     border-bottom: 1px solid var(--color-3);
 }
-.quiz__name{
+
+.quiz__name {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--color-5);
 }
-.name__user{
+
+.name__user {
     font-weight: 400;
     color: black;
-    
 }
-.quiz__score{
+
+.quiz__score {
     background-color: var(--color-5);
-    padding:7px;
+    padding: 7px;
     border-radius: 5px;
     font-weight: 700;
     color: var(--color-2);
 }
-.question__container{
-    padding: 1rem 0 0 ;
+
+.question__container {
+    padding: 1rem 0 0;
 }
-.quiz__question{
+
+.quiz__question {
     font-size: 0.9rem;
     font-weight: bold;
     height: 4rem;
 }
-.option__list{
 
+.option__list {
     border-bottom: 1px solid var(--color-3);
     margin-bottom: 0.5rem;
 }
-.option{
-    border: 2px solid #ff000049;
+
+.option {
+    border: 2px solid #FF000049;
     padding: 0.5rem 0.5rem;
     margin: 0.5rem 0;
     border-radius: 3px;
@@ -104,26 +118,28 @@ body{
     cursor: pointer;
 }
 
-.quiz__footer{
+.quiz__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.next__btn{
+
+.next__btn {
     transition: all 0.3s ease-in-out;
     background-color: var(--color-5);
     color: var(--color-2);
     border: none;
-    color: white;
     font-weight: 700;
     padding: 7px;
     border-radius: 5px;
 }
-.next__btn:hover{
+
+.next__btn:hover {
     background-color: var(--color-3);
 }
-/* ingrese su usuario */
-.username__container{
+
+/* Ingreso de usuario */
+.username__container {
     background-color: var(--color-1);
     width: max-content;
     padding: 1rem;
@@ -135,8 +151,7 @@ body{
     transition: all 1s ease;
 }
 
-
-.btn{
+.btn {
     padding: 5px 20px;
     color: var(--color-2);
     font-weight: bold;
@@ -144,7 +159,8 @@ body{
     border-radius: 10px;
     cursor: pointer;
 }
-.input__username{
+
+.input__username {
     display: block;
     width: 100%;
     height: 2rem;
@@ -155,37 +171,46 @@ body{
     font-weight: 700;
     padding: 0.5rem;
 }
-.error{
+
+.error {
     margin-bottom: 1rem;
     color: var(--color-3);
 }
-.user__buttons{
+
+.user__buttons {
     text-align: center;
 }
-.btn__cancelar{
-    background-color: var(--color-3);   
+
+.btn__cancelar {
+    background-color: var(--color-3);
 }
-.btn__continuar{
+
+.btn__continuar {
     background-color: green;
     border: green 1px solid;
 }
-.correct{
-    color: #00a63d;
-    border: 2px solid #00a63d;
+
+.correct {
+    color: #00A63D;
+    border: 2px solid #00A63D;
 }
-.incorrect{
+
+.incorrect {
     color: var(--color-5);
     border: 2px solid var(--color-5);
 }
-.disabled__questions{
+
+.disabled__questions {
     pointer-events: none;
 }
-.disabled{
-    background-color: #ccc; /* O cualquier color que indique que el botón está deshabilitado */
+
+.disabled {
+    background-color: #CCC;
     cursor: not-allowed;
 }
-/* RESULTADOS */
-.result__box{
+
+/* Resultados */
+.result__box {
     background-color: var(--color-6);
     position: absolute;
     top: 50%;
@@ -198,36 +223,40 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-color: var(--color-2);
+    color: var(--color-2);
     opacity: 0;
     pointer-events: none;
 }
+
 .result__box.show {
     opacity: 1;
     pointer-events: auto;
 }
 
-.result__title{
+.result__title {
     font-size: 1.5rem;
 }
-.porcentage__container{
-  width: 300px;
-  display: flex;
-  flex-direction:column ;
-  align-items:center;
-  margin: 20px 0 40px
+
+.porcentage__container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
 }
-.circular__progress{
-  position: relative;
-  width: 250px;
-  height: 250px;
-  background: conic-gradient(var(--color-3) 3.6deg, rgba(255, 255, 255, .1) 0deg);
-  border-radius: 50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+
+.circular__progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(var(--color-3) 3.6deg, rgba(255, 255, 255, 0.1) 0deg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.circular__progress::before{
+
+.circular__progress::before {
     content: "";
     position: absolute;
     width: 210px;
@@ -235,23 +264,27 @@ color: var(--color-2);
     border-radius: 50%;
     background-color: var(--color-6);
 }
-.progress__value{
+
+.progress__value {
     position: relative;
-  font-size: 45px;
-  font-weight:600;
+    font-size: 45px;
+    font-weight: 600;
 }
-.score__text{
-  font-size: 1.5rem;
-  font-weight:600;
-  margin-top: 20px;
+
+.score__text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
 }
-.buttons{
+
+.buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
-.btn__result{
+
+.btn__result {
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-2);
     outline: none;
@@ -262,26 +295,29 @@ color: var(--color-2);
     cursor: pointer;
 }
 
-.tryagain__btn{
+.tryagain__btn {
     background-color: var(--color-3);
-    transition: all0.3s ease;
+    transition: all 0.3s ease;
 }
-.tryagain__btn:hover{
+
+.tryagain__btn:hover {
     background-color: var(--color-5);
 }
 
-.gohome__btn{
+.gohome__btn {
     background-color: var(--color-3);
     border: 1px solid var(--color-5);
-    transition: all0.3s ease;
+    transition: all 0.3s ease;
 }
-.gohome__btn:hover{
+
+.gohome__btn:hover {
     background-color: var(--color-5);
     border: 1px solid var(--color-2);
 }
-/* breakpoints */
-@media (min-width: 768px){
-    .username__container{
+
+/* Breakpoints */
+@media (min-width: 768px) {
+    .username__container {
         width: 500px;
         height: 200px;
         display: flex;
@@ -289,24 +325,29 @@ color: var(--color-2);
         align-items: center;
         justify-content: center;
     }
-    .option:hover{
-        background-color: #ff000049;
+
+    .option:hover {
+        background-color: #FF000049;
     }
-    .input__username{
-    width: 300px;
-    height: 3rem;
-    font-size: 1.5rem;
-    }
-    .btn__continuar{
+
+    .input__username {
+        width: 300px;
+        height: 3rem;
         font-size: 1.5rem;
     }
-    .quiz__question{
+
+    .btn__continuar {
+        font-size: 1.5rem;
+    }
+
+    .quiz__question {
         font-size: 1rem;
     }
+
     .quiz__name,
     .option,
     .question__total,
-    .next__btn{
+    .next__btn {
         font-size: 1.3rem;
     }
 }

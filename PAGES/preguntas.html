@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- remix icon -->
+    <!-- Enlace a Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-    <title>Quiz Website HTML CSS JS </title>
-    <!-- link de css -->
+    <title>Quiz Website HTML CSS JS</title>
+    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="../CSS/preguntas.css">
 </head>
 
@@ -16,67 +16,55 @@
     <main class="main active">
         <section class="section-quiz container">
             <div class="quiz-box">
-                <h1 class="quiz__title">Quiz Aplication</h1>
+                <h1 class="quiz__title">Quiz Application</h1>
                 <div class="quiz__header">
                     <p class="quiz__name">Jugador: <span class="name__user"></span></p>
-                    <span class="quiz__score"> Score: 0 / 10</span>
+                    <span class="quiz__score"> Score: 0 / 20</span>
                 </div>
                 <div class="question__container">
                     <h2 class="quiz__question">1. ¿Cuál es el río más largo del mundo?</h2>
                 </div>
 
                 <div class="option__list">
-                    <!-- <div class="option">
-                        <span>A. Nilo</span>
-                    </div>
-                    <div class="option">
-                        <span>B. Amazonas</span>
-                    </div>
-                    <div class="option">
-                        <span>C. Yangtsé</span>
-                    </div>
-                    <div class="option">
-                        <span>D. Misisipi</span>
-                    </div> -->
+                    <!-- Opciones de respuesta se añadirán aquí dinámicamente -->
                 </div>
 
                 <div class="quiz__footer">
                     <span class="question__total">1 de 20 preguntas</span>
-                    <button type="button" class="next__btn"> Siguiente</button>
+                    <button type="button" class="next__btn">Siguiente</button>
                 </div>
             </div>
-
-            
         </section>
     </main>
-    <!-- aqui el usuario agrega su nombre -->
+
+    <!-- Contenedor para el nombre de usuario -->
     <div class="username__container">
         <div class="input__container">
-            
             <input type="text" class="input__username" placeholder="Ingrese su nombre">
             <p class="error"></p>
         </div>
         <div class="user__buttons">
-            <button  class="btn btn__continuar btn__continuar-user">Continuar</button>
+            <button class="btn btn__continuar btn__continuar-user">Continuar</button>
         </div>
     </div>
-    <!-- aqui se ve los resultados de quiz -->
+
+    <!-- Contenedor para mostrar los resultados del quiz -->
     <div class="result__box">
         <h2 class="result__title">Quiz result!!</h2>
         <div class="porcentage__container">
             <div class="circular__progress">
                 <span class="progress__value">0%</span>
             </div>
-
-            <span class="score__text">your Score 0 out of 20</span>
+            <span class="score__text">Your Score: 0 out of 20</span>
         </div>
-
         <div class="buttons">
-            <a href="../index.html" class="btn__result gohome__btn">ir al inicio</a>
+            <a href="../index.html" class="btn__result gohome__btn">Ir al inicio</a>
         </div>
     </div>
-    <script src="../SCRIPTS/questions.js"></script>
-    <script src="../SCRIPTS/script.js"></script>
+
+    <!-- Enlace al archivo JavaScript de preguntas -->
+    <script src="../SCRIPTS/questions.js" type="module"></script>
 </body>
 
 </html>
+
